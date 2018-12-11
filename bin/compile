@@ -54,6 +54,12 @@ dotnet publish $PROJECT_FILE --output ${BUILD_DIR}/heroku_output --configuration
 echo "Diretorio publish ${BUILD_DIR}"
 echo "Diretorio home ${HOME}"
 
+file_count=$(find ${BUILD_DIR}/heroku_output -name newrelic.config | wc -l)
+if [[ $file_count -eq 0 ]]; then
+    echo "não achei newrelic.config"
+else
+    echo "achei newrelic.config"
+fi
 
 cat << EOT >> ${BUILD_DIR}/Procfile
 web: cd \$HOME/heroku_output && ASPNETCORE_URLS='http://+:5000' dotnet "./${PROJECT_NAME}.dll"
