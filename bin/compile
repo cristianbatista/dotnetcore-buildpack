@@ -44,11 +44,6 @@ if [ -z ${PROJECT_NAME:-} ]; then
 	PROJECT_NAME=$(basename ${PROJECT_FILE%.*})
 fi
 
-if [ -f ${BUILD_DIR}/newrelic.config ]; then
-	echo "Installing newrelic"
-	install_newrelic $BUILD_DIR $CACHE_DIR
-fi
-
 echo "publish ${PROJECT_FILE}"
 dotnet publish $PROJECT_FILE --output ${BUILD_DIR}/heroku_output --configuration Release --runtime linux-x64
 
