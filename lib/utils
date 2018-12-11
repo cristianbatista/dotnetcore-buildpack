@@ -86,7 +86,7 @@ function install_newrelic() {
     echo "$ZIP_NAME from cache folder"
   fi
 
-  mkdir -p ${BUILD_DIR}/newrelic && tar zxf $CACHE_DIR/$ZIP_NAME -C ${BUILD_DIR}/newrelic
+  mkdir -p ${BUILD_DIR}/heroku_output/newrelic && tar zxf $CACHE_DIR/$ZIP_NAME -C ${BUILD_DIR}/heroku_output/newrelic
 }
 
 
