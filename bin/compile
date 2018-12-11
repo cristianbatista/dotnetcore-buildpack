@@ -60,11 +60,11 @@ echo "Diretorio home ${HOME}"
 file_count=$(find ${BUILD_DIR}/heroku_output -name newrelic.config | wc -l)
 if [[ $file_count -eq 0 ]]; then
     cat << EOT >> ${BUILD_DIR}/Procfile
-	web: cd \$HOME/heroku_output && ASPNETCORE_URLS='http://+:5000' $CORECLR_NEWRELIC_HOME/run.sh dotnet "./${PROJECT_NAME}.dll"
-    EOT
+web: cd \$HOME/heroku_output && ASPNETCORE_URLS='http://+:5000' $CORECLR_NEWRELIC_HOME/run.sh dotnet "./${PROJECT_NAME}.dll"
+EOT
 else
     cat << EOT >> ${BUILD_DIR}/Procfile
-	web: cd \$HOME/heroku_output && ASPNETCORE_URLS='http://+:5000' dotnet "./${PROJECT_NAME}.dll"
-    EOT
+web: cd \$HOME/heroku_output && ASPNETCORE_URLS='http://+:5000' dotnet "./${PROJECT_NAME}.dll"
+EOT
 fi
 
